@@ -1,17 +1,4 @@
-two $r$-permutations are in the same part if they a re in the same circular $r$-permutation.
-
-num circular $r$-permutatuion:
-formula here
-$$
-\begin{align}
-m = \frac{|S|}{|S_{i}|} \\
-\text{where } |S_{i} = r \forall i
-\end{align}
-$$
-(same as division principle, all parts of circular perm are the same number of permutations)
-
-
-# Practice Problems
+# Permutations Practice Problems
 ## Practice 1
 How many ways are there to arrange 26 lowercase letters so that no two vowels are consecutive?
 
@@ -101,10 +88,10 @@ r > n \to \binom{n}{r} &= 0,  \text{ no way of choosing more elements than exist
 \end{align}
 $$
 
-## Combinatorial proof
-a proof that uses counting arguments to prove a theorem or a statement.
+**Combinatorial proof**: a proof that uses counting arguments to prove a theorem or a statement.
 
-**Theorem:** For $0 \leq r \leq n$,
+## Theorem 1
+For $0 \leq r \leq n$,
 $$
 \begin{align}
 \binom{n}{r}= \frac{P(n,r)}{r!}= \frac{n!}{r!(n-r)!}
@@ -131,13 +118,12 @@ $$
 P(n,r)= \binom{n}{r} * r! \\
 \end{align}
 $$
-
-
-**Theorem 2.3.2:** For $0 \leq k \leq n$.
+## Theorem 2.3.2:
+For $0 \leq k \leq n$.
 $$
 \binom{n}{k}= \binom{n}{n-k}
 $$
-**Proof Method 1:** Algebreic proof (not allowed on tests!)
+### Proof Method 1: Algebraic proof (not allowed on tests!)
 $$
 \begin{align}
 \frac{n!}{n!(n-k)!} = \frac{n!}{(n-k)!(n-(n-k))!} \\
@@ -146,7 +132,7 @@ $$
 \end{align}
 $$
 
-**Proof Method 2:** Combinatorial proof
+### Proof Method 2: Combinatorial proof
 
 Let $S = \{ a_{1},\dots,a_{n} \}$, be an $n$-element set
 For any $A \subseteq S$ w/ $|A|=k$
@@ -168,47 +154,61 @@ $$
 \forall A \in X, f(A) = \bar{A} \in Y. \\
 \end{align}
 $$
-Then f is a bijection from x to y only one compliment of a set.
+Then $f$ is a bijection from $x$ to $y$ only one compliment of a set.
 It follows that
-$\binom{n}{k}= |X| = |Y| = \binom{n}{n-k}$
+$$
+\begin{align}
+\binom{n}{k}= |X| = |Y| = \binom{n}{n-k} \\ \\
+\square
+\end{align}
+$$
 
 
-**Theorem 2.3.3:** For $1 \leq k \leq n-1$:
+## Theorem 2.3.3
+For $1 \leq k \leq n-1$:
 $$
 \begin{align}
 \binom{n}{r}k & =\binom{n-1}{k}+ \binom{n-1}{k-1}
 \end{align}
 $$
-*Remark: This is called **Pascals identity***.
+*Remark: This is called **Pascal's identity***.
 
-**Intuituion:**
-**LHS**: choices left if we don't include some "current" element -  one less element to choose from, still need to fill $k$ elements
-**RHS**: choices left if we incldued the "current" element - one less element to choos from, also filled one slot for $k$.
+### Intuition
+For every element $a$ we have two choices: whether to choose it or not
+1. if we *don't* choose $a$, then we still have to fill $k$ choices, however now we have one less element to choose form ($a$). 
+2. if we *do* choose $a$, then we only have to fill $k-1$ choices, and since we took $a$ we also have one less element to choose from.
 
+### Proof
+Let $S$ be an $n$-element set and pick $a \in A$. *Count \# $k$-element subsets of $S$:* 
+$$
+\begin{align}
+\text{Define } X := \{ A \in S \mid\ |A| = k \} \\
+\text{Then } |X| = \binom{n}{k}
+\end{align}
+$$
+>[!spoiler]- Note for understanding
+Here $X_{1}$ is all subsets (size $k$) that include the element $a$, and $X_{2}$ is all the subsets that *don't* include element $a$. Together they form a partition of $X$.
 
-**Proof:**
-Let $S$ be an $n$-element set and pick $a \in A$. *Count \# $k$-element subsets of $S$* 
-
+Now partition $X$ into $X_{1}\ \&\ X_{2}$:
 
 $$
 \begin{align}
-\text{Define} X := \{ A in S |\ |A| = k \} \\
-\text{Then} |X| = \binom{n}{k}
-\end{align}
-$$
-Now partition $X$ into $X_{1}\ \&\ X_{2}$.
-
-$$
-\begin{align}
-X_{1} = \{ A \subseteq S |  |A| = k \cap a \in A \} \\
-X_{2} = \{ A \subseteq S |  |A| = k \cap a \not\in A \}
+X_{1} = \{ A \subseteq S \mid\ \left| A \right|  = k \cap a \in A \} \\
+X_{2} = \{ A \subseteq S \mid\ \left| A \right| = k \cap a \not\in A \}
 \end{align}
 $$
 
-Then $|X_{2}| =$ \# $k$-eleement subsets of $S - \{ a \} = \binom{n-1}{k}$.
-Then $|X_{1}| =$ \# $k-1$-eleement subsets of $S - \{ a \} = \binom{n-1}{k-1}$.
+>[!spoiler]- Note for understanding
+ In $X_{2}$ we have to fill $k$ spots, however we know $a \not\in A$ meaning we cannot consider $a$ as an option in our subset.
 
-By the addition principle
+Then $|X_{2}| =$ \# $k$-element subsets of $S - \{ a \} = \binom{n-1}{k}$.
+
+>[!spoiler]- Note for understanding
+ In $X_{1}$ we have to fill $k$ spots as well, however we are guaranteed one of them will be filled with $a$, so we only really need to fill $k$. We also dont have access to $a$ as a choice since it was already chosen, so $n$ gets reduced by one here as well
+
+Then $|X_{1}| =$ \# $(k-1)$-element subsets of $S - \{ a \} = \binom{n-1}{k-1}$.
+
+By the addition principle:
 $$
 \begin{align}
 |X| = |X_{2}| + |X_{1}| = \binom{n-1}{k} + \binom{n-1}{k-1}.
