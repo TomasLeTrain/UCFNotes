@@ -1,0 +1,3 @@
+[submodule ".GitConfig"]
+	path = .GitConfig
+	url = https://github.com/TomasLeTrain/ObsidianConfig
