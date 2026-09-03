@@ -66,12 +66,12 @@ $$
 $$
 
 # Combinations
-Let $r\geq 0$ be an $\mathbb{Z}$ and let $S$ be a set with $|S| = n \geq r$.
+Let $r\geq 0, r \in \mathbb{Z}$ and let $S = \{ \dots \}, |S| = n \geq r$.
 An $r$-combination of $S$ is an unordered selection of $r$ objects of the $n$ elements in $S$.
 
 An unordered collection of elements from a set is also the definition of a **subset** $\to$ Combinations and subsets are equivalent.
 
-*Remark:* An $r$-combination is an $r$-elemet subset of $S$ 
+*Remark:* An $r$-combination is an $r$-element subset of $S$ 
 $$
 \begin{align}
 \binom{n}{r} := \text{\# r-combinations of $S$}
@@ -154,7 +154,7 @@ $$
 \forall A \in X, f(A) = \bar{A} \in Y. \\
 \end{align}
 $$
-Then $f$ is a bijection from $x$ to $y$ only one compliment of a set.
+Then $f$ is a bijection from $X$ to $Y$: only one compliment of a set.
 It follows that
 $$
 \begin{align}
