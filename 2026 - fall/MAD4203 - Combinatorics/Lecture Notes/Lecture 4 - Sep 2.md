@@ -19,7 +19,7 @@ $\underbrace{ a_{4},\dots,a_{4} }_{ \text{2026 copies} }$
 
 ## Theorem 2.4.1
 Let $M = \{  n_{1} a_{1}, \dots, n_{k}a_{k} \}$
-If $r \leq min \{n_{1},\dots n_{k}\}$, then # $r$-permutations of $M = \underbrace{ k * \dots * k }_{ r \text{ times} } = \boxed{ k^{r} }$
+If $r \leq \min \{n_{1},\dots n_{k}\}$, then # $r$-permutations of $M = \underbrace{ k * \dots * k }_{ r \text{ times} } = \boxed{ k^{r} }$
 
 ## Theorem 2.4.2
 Let $M = \{ n_{1} * a_{1}, \dots, n_{k}a_{k} \}$
@@ -88,9 +88,15 @@ $$
 
 *Remark 2:* From the proof of [[Lecture 4 - Sep 2#Theorem 2.4.2]]: If we have $n = n_{1} + .. + n_{k}$ distinct objects and put $n_{1}$ of them into Box 1, $n_{2}$ of them nito Box 2, $\dots$ , $m_{k}$ of them into Box $k$ (boxes are distinguishable)
 
-*Remark 3:* If boxes are indistinguishable and $n_1$ is equal to $n_{k}$,, then there are 
+*Remark 3:* If boxes are indistinguishable and $n_1 = n_{2} = \dots = n_{k}$, then there are 
+$$
+\begin{align}
+\frac{n!}{k!n_{1}!n_{2}!\dots n_{k}!}
+\end{align}
+$$
 
-*Remark 4:* if $min \{ n_{1},\dots,n_{k} \} < r < n$, no formula is given. But in chapter 7 we will use generating functiosn to solve.
+
+*Remark 4:* if $min \{ n_{1},\dots,n_{k} \} < r < n$, no formula is given. But in chapter 7 we will use generating functions to solve.
 
 # Combinations of Multiset
 $M = \{  n_{1} a_{1}, \dots, n_{k} a_{k} \}, n = n_{1} + \dots + n_{k}$

@@ -182,49 +182,34 @@ $$
 \end{align}
 $$
 ## B
+We can imagine first lining up $n-k$ spots of non-chosen places (whose sticks are unkown yet). Then, we insert $k$ sticks between those non-chosen places. After placing all chosen sticks, the positions of chosen/non-chosen places will be valid (no consecutive chosen sticks).
 
-Insert chosen sticks between non chosen sticks
-becomse equal to number of ways to insert (select the bewteen points):
+Therefore the answer becomes equal to number of ways to insert (select the bewteen points). There are $n-k$ non-chosen spots, therefore $n-k+1$ gaps where to insert:
 $$
 \begin{align}
-\boxed{ \binom{n+1}{k} }
-\end{align}
-$$
-
-
-???
-
-
-Equivalent to ways of inserting chosen sticks between non-chosen sticks.
-
-The \# of ways to choose non-chosen sticks:
-$$
-\begin{align}
-r = n - k \\
-\binom{n}{r} = \binom{n}{n-k} = \binom{n}{k}
-=\frac{n!}{k!(n-k)!}
+\boxed{ \binom{n-k+1}{k} }
 \end{align}
 $$
 
 ![[Drawing 2026-08-31 16.31.29.excalidraw|100%]]
 
-Once we have chosen where to 
+## C
 
+First we must satisfy the condition of at least $l$ sticks between chosen sticks. This can be done same as was done above, but instead of placing one stick in every blue place we place $l$ sticks.
 
-
-Now there are $n-k+1$ gaps in which we can choose to place the chosen sticks:
+Then, we insert the $k$ chosen sticks between the gaps of $l * k-1$ groups of $l$ sticks:
 $$
 \begin{align}
-\binom{n-k+1}{k} = \frac{(n-k+1)!}{k!(n-k+1 - k)!} \\
-= \frac{(n-k+1)!}{k!(n-2 *k+ 1)!}
+\binom{l * k}{k}
 \end{align}
 $$
+However, at this point we have only satisfied the $l$ sticks condition, we still have some non-chosen sticks we have not considered. In other words, there are **at least** $l$ sticks between chosen sticks, however we have not considered the case where there are more than $l$ sticks.
+
+We must have $n - l * k - k = n - k(l+1)$ sticks that have not been used yet,
 
 
-Abar is at least 
 
-## C
-???
+
 
 # 42
 *Determine the number of ways to distribute 10 orange drinks, 1 lemon drink,
@@ -268,3 +253,115 @@ $$
 $$
 
 However this still includes the permutations that include 
+
+# 48
+*Prove that the number of permutations of $m$ $A$'s and at most $n$ $B$'s equals*
+$$
+\begin{align}
+\binom{m+n+1}{m+1} \\
+\end{align}
+$$
+
+Lets first split all permutations by their size:
+$m$-permutations: $M = \{ m * A \}$ -> 1 way
+$m+1$-permutations: $M = \{ m * A,1 * B \}$
+$m+2$-permutations: $M = \{ m * A,2 * B \}$
+...
+$m + n$-permutations: $M = \{ m * A,n * B \}$
+
+Finding the size of each size-permutation becomes:
+$$
+\begin{align}
+m \to \boxed{ \binom{m}{m} = 1 } \\
+m + 1 \to \binom{m+1}{1} = \boxed{ \binom{m+1}{m} } \\
+m + 2 \to \binom{m+2}{2} =\boxed{  \binom{m+2}{m} } \\
+\dots \\
+m + n \to \binom{m+n}{n} = \boxed{ \binom{m+n}{m} } \\
+\end{align}
+$$
+Therefore, the answer is equivalent to:
+$$
+\begin{align}
+\binom{m}{m} + \binom{m +1}{m} + \binom{m+2}{m} + \dots \binom{m+n}{m} \\
+\text{or} \\
+\binom{m+n}{m} + \binom{m+n-1}{m} + \binom{m+n-2}{m} + \dots + \binom{m}{m}
+\end{align}
+$$
+
+So we must now prove equivalence of 
+$$
+\begin{align}
+\binom{m+n+1}{m+1} =
+\binom{m+n}{m} + \binom{m+n-1}{m} + \binom{m+n-2}{m} + \dots + \binom{m}{m}
+
+\end{align}
+$$
+
+To prove this pascal's identity is recursively expanded, giving the same sum:
+$$
+\begin{align}
+\binom{m+n+1}{m+1} = \binom{m+n}{m+1} + \binom{m+n}{m}  \\ \\
+
+= \left(  \binom{m+n-1}{m+1} + \binom{m+n-1}{m} \right)  +  \binom{m+n}{m} \\ \\
+
+= \left( \left( \binom{m+n-2}{m+1} +  \binom{m+n-2}{m}  \right) + \binom{m+n-1}{m} \right)  + \binom{m+n}{m} \\ \\
+
+
+\dots \\ \\
+
+\binom{m+n+1}{m+1} = \binom{m+2}{m+1} + \dots  + \binom{m+n-2}{m} + \binom{m+n-1}{m}  + \binom{m+n}{m} \\ \\ 
+
+\to \binom{m+2}{m+1} = \binom{m+1}{m+1} + \binom{m+1}{m} \\
+\binom{m+2}{m+1} = \binom{m}{m} + \binom{m+1}{m} \\ \\
+
+\to \boxed{ \binom{m+n+1}{m+1} = \binom{m}{m} + \binom{m+1}{m} +  \dots  + \binom{m+n-2}{m} + \binom{m+n-1}{m}  + \binom{m+n}{m} \\ \\ }
+\end{align}
+
+$$
+
+
+## 49
+*Prove that the number of permutations of at most m A's and at most n B's equals*
+$$
+\begin{align}
+\binom{m+n+2}{m+1}-1
+\end{align}
+$$
+
+First place at most $n$ $B$'s then place A's:
+$$
+\begin{align}
+
+\end{align}
+$$
+
+
+Answer equal to permutations of all multisubsets of  $M = \{ m * A, n * B \}$.
+
+$$
+\begin{align}
+M = \{ m * A, n * B \} \to \binom{m + n}{m} \\
+M = \{ m-1 * A, n * B \} \to \binom{m -1 + n}{m} \\
+M = \{ m-2 * A, n * B \} \to \binom{m - 2 + n}{m} \\ \\
+\dots \\
+M = \{ n * B \} \to \binom{n}{m} \\ \\
+
+\end{align}
+$$
+
+$$
+\begin{align}
+M = \{ 0 * a, 0 * b \} \\
+M = \{ 1 * a, 0 * b \} \\
+M = \{ 2 * a, 0 * b \} \\ \\
+\dots
+M = \{ m * a, 0 * b \} \\ \\
+
+M = \{ 0 * a, 1 * b \} \\
+M = \{ 0 * a, 2 * b \} \\
+
+\end{align}
+$$
+
+## 51
+*Consider the multiset $M = {n * a, 1, 2, 3, ... ,n}$ of size $2n$. Determine the number of its $n$-combinations.*
