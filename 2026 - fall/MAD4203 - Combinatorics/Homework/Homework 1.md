@@ -2,21 +2,20 @@
 *In how many ways can 15 people be seated at a round table if B refuses to sit next to A? What if B only refuses to sit on A's right?*
 
 ## a.
-Place $a$ first (1 choice, circular permutation). Then you have 12 choices to seat $b$ (not left of a / right of a / place of a). Then you place any other person, have 13 spots to place (not place of $a$/$b$, no restrictions on placement). By this logic the next person has 12 spots, then the next 11, etc.
+Place $a$ first (1 choice, circular permutation). Then you have 12 choices to seat $b$ (not left of $a$/ right of $a$ / place of $a$). Then you place any other person, have 13 spots to place (not place of $a$/$b$, no other restrictions on placement). By this logic the next person has 12 spots, then the next 11, etc.
 $$
 \begin{align}
-1 * 12 * 13 * 12! = \boxed{ 12 * 13! }
+1 * 12 * 13 * 12 * 11 * \dots= \boxed{ 12 * 13! }
 \end{align}
 $$
 
 ## b.
-Same steps as a, except that $b$ has one more spot to sit:
+Same steps as a, except that $b$ has one more spot to sit (to the left of $a$):
 $$
 \begin{align}
-1 * 13 * 13 * 12! =  \boxed{ 13 * 13! }
+1 * 13 * 13! =  \boxed{ 13 * 13! }
 \end{align}
 $$
-
 # 16
  *Prove that*
  $$
@@ -36,8 +35,6 @@ $$
 |X| = \binom{n}{r}
 \end{align}
 $$
-
-
 We can define the complement of $X$:
 $$
 \begin{align} \\
@@ -48,7 +45,7 @@ $$
 $$
 Therefore, we must show that $|X| = |\bar{X}|$.
 
-To do this, we define $f$ such that $f: X \to |\bar{X}|$.
+To do this, we define $f$ such that $f: X \to \bar{X}$:
 $$
 \begin{align}
 \forall A \in X, f(A) = \bar{A} \in |\bar{X}|. \\
@@ -67,36 +64,26 @@ $$
 ## a.
 *Determine the number of ways if each team has a different name.*
 
-
-If we imagine giving out some $t_{k}$ for every player, then every player will be assigned a team. By making a set of all teams with every element having $n$ items, we ensure the resulting teams all have $n$ items. The order of people doesn't matter, only the position of the items matters, so it's a permutation.
+Let the multiset $M = \{ n * t_{1}, n*t_{2}, \dots , n*t_{m} \}$ represent the set of teams. All $mn$-permutations of this set are:
 $$
-\begin{align} \\
-S = \{ n * t_{1}, n * t_{2}, \dots, n * t_{m} \} \\
-\frac{(nm)!}{n!n!n!n!n!\dots} = \boxed{ \frac{(nm)!}{m * n!} }
+\begin{align}
+\frac{(nm)!}{n!n!n!n!n!\dots} = \boxed{ \frac{(nm)!}{(n!)^{m}} }
 \end{align}
 $$
 
-
 ## b.
 *Determine the number of ways if the teams don't have names.*
-
-In this case we only consider the grouping of people, not the different combinations of teams.
-This means that multiple permutations of different team combinations reduce to the same combination of groupings.
-
-There are $m!$ ways to arrange teams, therefore we must reduce by that amount:
+In this case the previous result is overcounting by $m!$, since all permutations of different team labels are counted separately. Since all the teams are of the same size the size of all the partitions is the same, meaning we can use the division principle to get:
 $$
 \begin{align} \\
-\boxed{ \frac{(nm)!}{m*n!*m!} }
+\boxed{ \frac{(nm)!}{m!(n!)^{m}}  }
 \end{align}
 $$
 
 # 33
 *Determine the number of 10-permutations of the multiset $S = \{3* a,4* b,5* c\}$.*
 
-Instead of constructing the permutation we can remove 2 elements from $S$ and count the ways to construct the permutation that way.
-
-This reduces the problem to finding permutations of a multiset with length $10$. However, the repetition numbers for each element depend on which numbers get taken out, so all cases have to be done manually. 
-
+Instead of constructing the permutation we can remove 2 elements from $S$ and count the $10$-permutations of that new multiset. This must be done for every combination of item removed:
 $$
 \begin{align}
 (a,a) \to S = \{ 1* a, 4 * b, 5 * c \} \to \frac{10!}{1!4!5!} \\
@@ -106,13 +93,7 @@ $$
 (b,c) \to S = \{ 3* a, 3 * b, 4 * c \} \to \frac{10!}{3!3!4!} \\
 (c,c) \to S = \{ 3* a, 4 * b, 3 * c \} \to \frac{10!}{3!4!3!} \\ \\
 |P| = |P_{a,a}| +  |P_{a,b}| + \dots \\
-|P| = 
-\frac{10!}{1!4!5!}+
-\frac{10!}{2!3!5!}+
-\frac{10!}{2!4!4!}+
-\frac{10!}{3!2!5!}+
-\frac{10!}{3!3!4!}+
-\frac{10!}{3!4!3!}
+\boxed{ |P| =  \frac{10!}{1!4!5!}+ \frac{10!}{2!3!5!}+ \frac{10!}{2!4!4!}+ \frac{10!}{3!2!5!}+ \frac{10!}{3!3!4!}+ \frac{10!}{3!4!3!} }
 
 \end{align}
 $$
@@ -132,7 +113,7 @@ $$
 For every element we can choose in the range $[0, n_{k}]$ number of objects for the combination. This means the \# of choices for each element is $n_{k}+1$. We can use the product rule to multiply the choices for each element since the choice happens for every element for every combination.
 $$
 \begin{align}
-(n_{1}+1)*(n_{2}+1)* \dots * (n_{k}+1)
+\boxed{ (n_{1}+1)*(n_{2}+1)* \dots * (n_{k}+1) }
 \end{align}
 $$
 
@@ -161,13 +142,6 @@ $$
 \binom{28}{25} = \frac{28!}{25!(28-25)!} = \boxed{ \frac{28!}{25!3!} }
 \end{align}
 $$
-
-
-$$
-\begin{align}
-S = \{ 2 * c,5 * d \} \\ \\
-\end{align}
-$$
 ## 40
 *There are $n$ sticks lined up in a row, and $k$ of them are to be chosen.*
 	*a. How many choices are there?*
@@ -194,65 +168,124 @@ $$
 ![[Drawing 2026-08-31 16.31.29.excalidraw|100%]]
 
 ## C
+Instead of placing all the chosen spots, we can first place all the chosen spots as well as the gaps between them, then insert non-chosen spots between them.
 
-First we must satisfy the condition of at least $l$ sticks between chosen sticks. This can be done same as was done above, but instead of placing one stick in every blue place we place $l$ sticks.
-
-Then, we insert the $k$ chosen sticks between the gaps of $l * k-1$ groups of $l$ sticks:
+The smallest sequence satisfying the $l$ sticks condition is:
 $$
 \begin{align}
-\binom{l * k}{k}
+\overbrace{ c \ \underbrace{ n n n n }_{ \text{$l$ sticks} }  \ c \  \underbrace{ n n n n }_{ \text{$l$ sticks} } \  \dots \ c }^{ k+l*(k-1) \text{ in length} }
 \end{align}
 $$
-However, at this point we have only satisfied the $l$ sticks condition, we still have some non-chosen sticks we have not considered. In other words, there are **at least** $l$ sticks between chosen sticks, however we have not considered the case where there are more than $l$ sticks.
+Therefore, the length of this sequence is $k + l * (k-1)$.
 
-We must have $n - l * k - k = n - k(l+1)$ sticks that have not been used yet,
-
-
-
-
+Now we must insert a variable number of sticks between this fixed sequence. The number of sticks inserted at each position varies, but the total number of inserted sticks remains the same (what's left over from the fixed sequence). The number of place where sticks can be inserted is $k+1 \to$ bewteen chosen$(k-1)$, to the left of the leftmost chosen$(1)$, or to the right of the rightmost chosen$(1)$. Therefore, the combinations can be modeled by:
+$$
+\begin{align} \\
+x_{1} + x_{2} + x_3 + \dots +x_{k+1} =  n - (k + l * (k - 1)) \\
+x_{1} \geq 0, x_{2} \geq 0, \dots , x_{k+1} \geq 0
+\end{align}
+$$
+With the stars and bars principle the number of positive integral solutions can be found:
+$$
+\begin{align}
+\binom{k+n-1}{k} \to \binom{\boxed{ (k+1) +(n - (k + l * (k - 1))) - 1 }}{k+1} \\
+\to k+1 + n - (k + l * (k - 1)) - 1 \\
+\to k + n - (k + l * (k - 1)) \\
+\to k + n - k - l * (k - 1) \\
+\to n - l * (k - 1) \\ \\
+\boxed{ \binom{n - l * (k-1)}{k+1} }
+\end{align}
+$$
 
 # 42
 *Determine the number of ways to distribute 10 orange drinks, 1 lemon drink,
 and 1 lime drink to four thirsty students so that each student gets at least one
 drink, and the lemon and lime drinks go to different students.*
 
+Let the set of valid combinations be $S$. We can partition $S$ into 4 distinct cases:
+1. all students get at least 1 orange
+2. one student gets no oranges
+3. two students get no oranges
+
+The case with three students with no oranges contains no solutions (after distributing lime and lemon there is still one person with nothing). So it is not considered
+
+### Case 1
+Lets first distribute all oranges, then distribute the lemon and lime.
+
+\# ways to distribute oranges such that everyone gets at least one:
 $$
 \begin{align}
-S = \{ 10 * o, 1 * e, 1 * i \}
-\end{align}
-$$
-
-
-First distribute all oranges across 3, then place lemon to one and lime to other.
-Special case for giving all oranges to one person, that way the lemon and lime are the one that each other gets.
-
-\# ways to distribute oranges (such that everyone gets at least one) * $P(3,2)$ +
-\# ways to distribute oranges (such that one person gets none) * $(P(3,2) - 1)$ (excludes when the person that didn't get anything gets nothing) +
-\# ways to distribute oranges (so one person gets all) * $2$
-
-$$
-\begin{align}
-x_{1}+x_{2}+x_{3}=12 \\
-x_{1}\geq 1, x_{2} \geq 1, x_{3} \geq 1 \\
+x_{1} + x_{2} + x_{3} + x_{4} = 10 \\
+x_{1},x_{2},x_{3}, x_{4} \geq 1 \\
 \to \\
-y_{1}= x_{1}-  1, y_{2} = x_{2}- 1, y_{3} = x_{3} - 1 \\
-y_{1}+y_{2}+y_{3}=12 - 1 - 1 -1 \\ \\
+y_{1} = x_{1} - 1, y_{2} = x_{2} - 1, \dots, y_{4} = x_{4} - 1 \\
+\to
+y_{1} + y_{2} + y_{3} + y_{4} = 10 - 4 \\ \\
 
-y_{1}+y_{2}+y_{3}=9 \\
-y_{1}\geq 0, y_{2} \geq 0, y_{3} \geq 0 \\
+y_{1} + y_{2} + y_{3} + y_{4} = 6 \\
+y_{1},y_{2},y_{3}, y_{4} \geq 0 \\
 \end{align}
 $$
-
-This becomes the same as combinations of a multiset with infinite repetition numbers:
+The number of integral solutions becomes:
 $$
 \begin{align}
-\binom{k+r-1}{r} =
-\binom{9+3-1}{3}=
-\binom{11}{3}
+\binom{n+k-1}{k} \to \binom{6 + 4 - 1}{4} \to \binom{9}{4}
+\end{align}
+$$
+For each of these choices there are no restriction on placement of lime or lemon other than them not going to the same person, so the choices for their placement is:
+$$
+\begin{align}
+4 * 3
+\end{align}
+$$
+Thus, all valid combinations for at least one orange distributed among everyone is:
+$$
+\begin{align}
+\boxed{ \binom{9}{4}*4*3 }
 \end{align}
 $$
 
-However this still includes the permutations that include 
+### Case 2
+Now the second case, where one person does not get any oranges is solved similarly.
+We can consider the number of ways to distribute among two people, then permute all those among all possible combinations of people:
+$$
+\begin{align}
+x_{1} + x_{2} + x_{3} = 10, x_{1},x_{2},x_{3} \geq 1 \\
+\to
+y_{1} + y_{2} + y_{3} = 7, y_{1}, y_{2},y_{3} \geq 0 \\ \\
+\to  \\
+\binom{7 + 3 - 1}{3} \to \binom{9}{3} \\
+\text{we must choose who does not get any lime:} \\
+\binom{4}{1} = 4 \\
+\end{align}
+$$
+So the combinations without including the lemon or lime is:
+$$
+\begin{align}
+\binom{9}{2} * 4
+\end{align}
+$$
+Now to insert the lemon and lime there are the same number of choices, except one in which the one person that does not have any lime gets either: 
+$$
+\begin{align}
+4 * 3 - \underbrace{ 1 }_{ \text{person with no oranges gets no lime or lemon} }
+\end{align}
+$$
+So the total combinations are:
+$$
+\begin{align}
+\boxed{ \binom{9}{2} * \binom{3}{2} * (3 * 2 - 1) }
+\end{align}
+$$
+### Case 3
+
+### Result
+We can add all these combinations since they are mutually exclusive partitions of the solution set, therefore the total number of combinations is:
+$$
+\begin{align}
+\boxed{ \binom{9}{3}*3*2  + \binom{9}{2} * \binom{4}{1} * (4 * 3 - 1) + 3 * 2}
+\end{align}
+$$
 
 # 48
 *Prove that the number of permutations of $m$ $A$'s and at most $n$ $B$'s equals*
@@ -329,14 +362,16 @@ $$
 $$
 
 First place at most $n$ $B$'s then place A's:
+
+Answer equal to permutations of all multisubsets of  $M = \{ m * A, n * B \}$.
+
+Lets construct a different multiset
 $$
 \begin{align}
-
+S = \{ (m+1) * A, (n+1) * B \}
 \end{align}
 $$
 
-
-Answer equal to permutations of all multisubsets of  $M = \{ m * A, n * B \}$.
 
 $$
 \begin{align}
@@ -364,4 +399,21 @@ M = \{ 0 * a, 2 * b \} \\
 $$
 
 ## 51
-*Consider the multiset $M = {n * a, 1, 2, 3, ... ,n}$ of size $2n$. Determine the number of its $n$-combinations.*
+*Consider the multiset $M = \{n * a, 1, 2, 3, ... ,n\}$ of size $2n$. Determine the number of its $n$-combinations.*
+
+We can fix the amount of $a$'s and count each of those permutations. For each non-$a$ we are choosing from the $\{ 1,2,3,\dots ,n \}$ elements:
+$$
+\begin{align}
+\{ n*a \} \to 1 = \binom{n}{0} \\
+\{ (n-1)*a, ? \} \to \binom{n}{1} \\
+\{ (n-2)*a, ?, ? \} \to \binom{n}{2} \\
+\dots \\
+\{ 1,2,3,\dots,n \} \to \binom{n}{n} \\
+\end{align}
+$$
+Leading to
+$$
+\begin{align}
+\boxed{ \binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \dots \binom{n}{n} = \sum_{k=0}^{n} \binom{n}{k} }
+\end{align}
+$$

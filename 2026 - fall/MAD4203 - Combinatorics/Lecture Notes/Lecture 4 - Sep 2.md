@@ -86,7 +86,7 @@ M = \{ (n-k) * 0, k * 1 \} \\
 \end{align}
 $$
 
-*Remark 2:* From the proof of [[Lecture 4 - Sep 2#Theorem 2.4.2]]: If we have $n = n_{1} + .. + n_{k}$ distinct objects and put $n_{1}$ of them into Box 1, $n_{2}$ of them nito Box 2, $\dots$ , $m_{k}$ of them into Box $k$ (boxes are distinguishable)
+*Remark 2:* From the proof of [[Lecture 4 - Sep 2#Theorem 2.4.2]]: If we have $n = n_{1} + .. + n_{k}$ distinct objects and put $n_{1}$ of them into Box 1, $n_{2}$ of them into Box 2, $\dots$ , $m_{k}$ of them into Box $k$ (boxes are distinguishable)
 
 *Remark 3:* If boxes are indistinguishable and $n_1 = n_{2} = \dots = n_{k}$, then there are 
 $$
