@@ -5,7 +5,7 @@ $M = \{ n_{1} a_{1}, n_{2} a_{2}, \dots, n_{k} a_{k} \}$, when $a_{1},\dots, a_{
 Let $r \in \mathbb{Z}^{+}$ .
 
 An *$r$-permtuation of $M$* is an ordered arrangement of $r$ objects in $M$. 
-	When $r = n_{1}$ + ... + n_k, $r$-permutation is called a *permutation of $M$*.
+	When $r = n_{1} + ... + n_{k}$, $r$-permutation is called a *permutation of $M$*.
 
 ## Example
 $M = \{ 3 * a_{1}, 2 * a_{2}, \infty * a_{4} \}$

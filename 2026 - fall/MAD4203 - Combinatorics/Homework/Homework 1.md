@@ -10,7 +10,7 @@ $$
 $$
 
 ## b.
-Same steps as a, except that $b$ has one more spot to sit (to the left of $a$):
+Same steps as part a, except that $b$ has one more spot to sit (to the left of $a$):
 $$
 \begin{align}
 1 * 13 * 13! =  \boxed{ 13 * 13! }
@@ -26,8 +26,6 @@ $$
 *by using a combinatorial argument and not the values of these numbers as given*
 *in Theorem 3.3.1.*
 
-
-## Proof
 Let $S = \{ \dots \}, |S| = n$. Then by definition the number of $r$-combinations of $S$ is
 $$
 \begin{align} \\
@@ -39,7 +37,7 @@ We can define the complement of $X$:
 $$
 \begin{align} \\
 |A| = |S| - |\bar{A}| = n - r \\
-\bar{X} = \{ B \in S \mid |B| = n - r \} \\
+\bar{X} = \{ B \subseteq S \mid |B| = n - r \} \\
 |\bar{X}| = \binom{n}{n-r}
 \end{align}
 $$
@@ -73,7 +71,7 @@ $$
 
 ## b.
 *Determine the number of ways if the teams don't have names.*
-In this case the previous result is overcounting by $m!$, since all permutations of different team labels are counted separately. Since all the teams are of the same size the size of all the partitions is the same, meaning we can use the division principle to get:
+In this case the previous result is overcounting by $m!$, since all permutations of different team labels are counted separately. Since all the teams are of the same size, the size of all the partitions are the same as well, meaning we can use the division principle to get:
 $$
 \begin{align} \\
 \boxed{ \frac{(nm)!}{m!(n!)^{m}}  }
@@ -81,7 +79,7 @@ $$
 $$
 
 # 33
-*Determine the number of 10-permutations of the multiset $S = \{3* a,4* b,5* c\}$.*
+*Determine the number of $10$-permutations of the multiset $S = \{3* a,4* b,5* c\}$.*
 
 Instead of constructing the permutation we can remove 2 elements from $S$ and count the $10$-permutations of that new multiset. This must be done for every combination of item removed:
 $$
@@ -98,15 +96,6 @@ $$
 \end{align}
 $$
 
-
-**NOTE:** this was an original attempt at the problem, I confused it for permutations of a multiset with infinite repetition numbers
-$$
-\begin{align} 
-\binom{n+r-1}{r} \to \binom{(12)+(10)-1}{10} = \binom{21}{10} \\
-\binom{21}{10} = \boxed{ \frac{21!}{10!11!} }
-\end{align}
-$$
-
 # 36
 *Determine the total number of combinations (of any size) of a multiset of objects of $k$ different types with finite repetition numbers $n_{1}, n_{2}, . .. ,n_{k}$, respectively.*
 
@@ -116,8 +105,6 @@ $$
 \boxed{ (n_{1}+1)*(n_{2}+1)* \dots * (n_{k}+1) }
 \end{align}
 $$
-
-
 # 38
 *How many integral solutions of*
 $$
@@ -142,7 +129,7 @@ $$
 \binom{28}{25} = \frac{28!}{25!(28-25)!} = \boxed{ \frac{28!}{25!3!} }
 \end{align}
 $$
-## 40
+# 40
 *There are $n$ sticks lined up in a row, and $k$ of them are to be chosen.*
 	*a. How many choices are there?*
 	*b. How many choices are there if no two of the chosen sticks can be consecutive?*
@@ -165,8 +152,6 @@ $$
 \end{align}
 $$
 
-![[Drawing 2026-08-31 16.31.29.excalidraw|100%]]
-
 ## C
 Instead of placing all the chosen spots, we can first place all the chosen spots as well as the gaps between them, then insert non-chosen spots between them.
 
@@ -188,12 +173,12 @@ $$
 With the stars and bars principle the number of positive integral solutions can be found:
 $$
 \begin{align}
-\binom{k+n-1}{k} \to \binom{\boxed{ (k+1) +(n - (k + l * (k - 1))) - 1 }}{k+1} \\
+\binom{\boxed{ (k+1) +(n - (k + l * (k - 1))) - 1 }}{(k+1)-1} \\
 \to k+1 + n - (k + l * (k - 1)) - 1 \\
 \to k + n - (k + l * (k - 1)) \\
 \to k + n - k - l * (k - 1) \\
 \to n - l * (k - 1) \\ \\
-\boxed{ \binom{n - l * (k-1)}{k+1} }
+\boxed{ \binom{n - l * (k-1)}{k} }
 \end{align}
 $$
 
@@ -202,7 +187,7 @@ $$
 and 1 lime drink to four thirsty students so that each student gets at least one
 drink, and the lemon and lime drinks go to different students.*
 
-Let the set of valid combinations be $S$. We can partition $S$ into 4 distinct cases:
+Let the set of valid combinations be $S$. We can partition $S$ into 3 distinct cases:
 1. all students get at least 1 orange
 2. one student gets no oranges
 3. two students get no oranges
@@ -229,7 +214,7 @@ $$
 The number of integral solutions becomes:
 $$
 \begin{align}
-\binom{n+k-1}{k} \to \binom{6 + 4 - 1}{4} \to \binom{9}{4}
+\binom{n+k-1}{n} \to \binom{6 + 4 - 1}{6} \to \binom{9}{6}
 \end{align}
 $$
 For each of these choices there are no restriction on placement of lime or lemon other than them not going to the same person, so the choices for their placement is:
@@ -241,7 +226,7 @@ $$
 Thus, all valid combinations for at least one orange distributed among everyone is:
 $$
 \begin{align}
-\boxed{ \binom{9}{4}*4*3 }
+\boxed{ \binom{9}{6}*4*3 }
 \end{align}
 $$
 
@@ -254,40 +239,72 @@ x_{1} + x_{2} + x_{3} = 10, x_{1},x_{2},x_{3} \geq 1 \\
 \to
 y_{1} + y_{2} + y_{3} = 7, y_{1}, y_{2},y_{3} \geq 0 \\ \\
 \to  \\
-\binom{7 + 3 - 1}{3} \to \binom{9}{3} \\
-\text{we must choose who does not get any lime:} \\
+\binom{7 + 3 - 1}{7} \to \binom{9}{7} \\
+\text{we must choose who does not get any oranges:} \\
 \binom{4}{1} = 4 \\
 \end{align}
 $$
 So the combinations without including the lemon or lime is:
 $$
 \begin{align}
-\binom{9}{2} * 4
+\binom{9}{7} * 4
 \end{align}
 $$
-Now to insert the lemon and lime there are the same number of choices, except one in which the one person that does not have any lime gets either: 
+Now to insert the lemon and lime let's find all distributions that must include the person with nothing: 
+
+We pick anyone in the group, then give them either lime or lemon. Then, we give the other to the person with nothing. Therefore the combinations are:
 $$
 \begin{align}
-4 * 3 - \underbrace{ 1 }_{ \text{person with no oranges gets no lime or lemon} }
+3 * 2
 \end{align}
 $$
+Since there are 3 people that are not the person with nothing, and 2 ways to permute lemon and lime. 
+
 So the total combinations are:
 $$
 \begin{align}
-\boxed{ \binom{9}{2} * \binom{3}{2} * (3 * 2 - 1) }
+\boxed{ \binom{9}{7} * 4 * 3 * 2 }
 \end{align}
 $$
 ### Case 3
+In this case we must distribute oranges among 2 people:
+
+$$
+\begin{align}
+x_{1} + x_{2} = 10, x_{1},x_{2} \geq 1 \\
+\to
+y_{1} + y_{2} = 8, y_{1}, y_{2} \geq 0 \\ \\
+\to  \\
+\binom{8 + 2 - 1}{8} \to \binom{9}{8} \\
+\text{we must choose which people get the oranges:} \\
+\binom{4}{2} = \frac{4!}{2!2!} = \frac{4 * 3 * 2}{2 * 2} = 3 * 2 \\
+\end{align}
+$$
+So the combinations for distributing oranges is:
+$$
+\begin{align}
+\binom{9}{8} * 3 * 2
+\end{align}
+$$
+
+Now for placing the lemon and lime we must give them to the people that have nothing, so the choices are $2$, since who gets lime or lemon doesn't matter. Thus, the combinations for this case are:
+$$
+\begin{align}
+\binom{9}{8} * 3 * 2 * 2 = \boxed{ \binom{9}{8} * 3 * 4 }
+\end{align}
+$$
+
+
 
 ### Result
 We can add all these combinations since they are mutually exclusive partitions of the solution set, therefore the total number of combinations is:
 $$
 \begin{align}
-\boxed{ \binom{9}{3}*3*2  + \binom{9}{2} * \binom{4}{1} * (4 * 3 - 1) + 3 * 2}
+ & \boxed{ \binom{9}{6}*4*3 + \binom{9}{7} * 4 * 3 * 2  + \binom{9}{8} * 3 * 4}
 \end{align}
 $$
-
 # 48
+
 *Prove that the number of permutations of $m$ $A$'s and at most $n$ $B$'s equals*
 $$
 \begin{align}
@@ -353,67 +370,65 @@ $$
 $$
 
 
-## 49
-*Prove that the number of permutations of at most m A's and at most n B's equals*
+# 49
+*Prove that the number of permutations of at most m $A$'s and at most n $B$'s equals*
 $$
 \begin{align}
 \binom{m+n+2}{m+1}-1
 \end{align}
 $$
 
-First place at most $n$ $B$'s then place A's:
-
-Answer equal to permutations of all multisubsets of  $M = \{ m * A, n * B \}$.
-
-Lets construct a different multiset
+We can first fix the # of $A$'s and find the permutations having at most $n$ $B$'s.
+From problem \#48 the number of permutations of $m$ $A$'s and at most $n$ $B$'s equals:
 $$
 \begin{align}
-S = \{ (m+1) * A, (n+1) * B \}
+\binom{m+n+1}{m+1} \\
+\end{align}
+$$
+In this case we sum over all different numbers of $A$, yielding the sum:
+$$
+\begin{align} \\
+\sum_{k=0}^{m} \binom{k+n+1}{k+1} 
+\end{align}
+$$
+This sum can be simplified using the same equality found from question \#48:
+$$
+\begin{align}
+\binom{m+n+1}{m+1} = \sum_{k=0}^{n} \binom{m+k}{m} = \binom{m}{m} + \binom{m+1}{m} +  \dots + \binom{m+n}{m} 
 \end{align}
 $$
 
-
+However, to use this equality the sumation has to be transformed:
 $$
-\begin{align}
-M = \{ m * A, n * B \} \to \binom{m + n}{m} \\
-M = \{ m-1 * A, n * B \} \to \binom{m -1 + n}{m} \\
-M = \{ m-2 * A, n * B \} \to \binom{m - 2 + n}{m} \\ \\
-\dots \\
-M = \{ n * B \} \to \binom{n}{m} \\ \\
+\begin{align} \\
+= \sum_{k=0}^{m} \binom{(k+1)+n}{(k+1)} \\
+= \sum_{k=0}^{m} \binom{n+(k+1)}{n} \\
+= \sum_{k=1}^{m+1} \binom{n+k}{n} \\ 
 
+= \sum_{k=0}^{m+1} \binom{n+k}{n} - \binom{n+0}{n} \\
+= \sum_{k=0}^{m+1} \binom{n+k}{n} - 1 \\ \\
+\to
+\sum_{k=0}^{m+1} \binom{n+k}{n} - 1  = \binom{n+(m+1)+1}{n+1} - 1 \\
+\boxed{ = \binom{n+m+2}{m+1} - 1 }
 \end{align}
 $$
 
-$$
-\begin{align}
-M = \{ 0 * a, 0 * b \} \\
-M = \{ 1 * a, 0 * b \} \\
-M = \{ 2 * a, 0 * b \} \\ \\
-\dots
-M = \{ m * a, 0 * b \} \\ \\
-
-M = \{ 0 * a, 1 * b \} \\
-M = \{ 0 * a, 2 * b \} \\
-
-\end{align}
-$$
-
-## 51
+# 51
 *Consider the multiset $M = \{n * a, 1, 2, 3, ... ,n\}$ of size $2n$. Determine the number of its $n$-combinations.*
 
-We can fix the amount of $a$'s and count each of those permutations. For each non-$a$ we are choosing from the $\{ 1,2,3,\dots ,n \}$ elements:
+We can fix the amount of $a$'s and count each of those combinations. For each non-$a$ we are choosing from the $\{ 1,2,3,\dots ,n \}$ elements:
 $$
 \begin{align}
 \{ n*a \} \to 1 = \binom{n}{0} \\
 \{ (n-1)*a, ? \} \to \binom{n}{1} \\
 \{ (n-2)*a, ?, ? \} \to \binom{n}{2} \\
 \dots \\
-\{ 1,2,3,\dots,n \} \to \binom{n}{n} \\
+\{ 0 * a, 1,2,3,\dots,n \} \to \binom{n}{n} \\
 \end{align}
 $$
 Leading to
 $$
 \begin{align}
-\boxed{ \binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \dots \binom{n}{n} = \sum_{k=0}^{n} \binom{n}{k} }
+\boxed{ \binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \dots \binom{n}{n} = \sum_{k=0}^{n} \binom{n}{k} = 2^{n} }
 \end{align}
 $$
