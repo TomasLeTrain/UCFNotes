@@ -62,7 +62,7 @@ $$
 Where $a_{1},\dots,a_{101} \in S$, and $|S| = 100$.
 By the PP, $a_{i}= a_{j}$ for some $i \neq j$
 
-Then $2^{k_{i}}a_{i} \mid 2^{k_{j}} if k_{i} \leq k_{j}$ and $2^{k_{j}} a_{j} \mid 2^{k_{i}} a_{i}$ if $k_{i} > k_{j}$.
+Then $2^{k_{i}}a_{i} \mid 2^{k_{j}}$ if $k_{i} \leq k_{j}$, and $2^{k_{j}} a_{j} \mid 2^{k_{i}} a_{i}$ if $k_{i} > k_{j}$.
 $\square$
 *Remark:* The 101 number cannot be reduced, because then all numbers between $101,\dots,200$ can get picked, and none can divide each other.
 ## Example 3

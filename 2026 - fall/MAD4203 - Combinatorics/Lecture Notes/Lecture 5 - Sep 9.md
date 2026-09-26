@@ -1,4 +1,4 @@
-
+ 
 # Quick Review
 $$
 \begin{align}

@@ -31,6 +31,7 @@ $P(\cdot | F)$ is a probability:
 1. $P(S | F) = 1 \to P(S) = 1$
 2. $P(E^{C} | F) = 1 -  P(E | F) \to P(E_{C}) = 1 - P(E)$
 3. $E_{i} \cap E_{j} = \emptyset, i \neq j, P\left( \bigcup_{i=1}^{\infty} E_{i} | F \right) = \sum_{i=1}^{\infty} P(E_{i}|F) \to \dots$
+4. $P(AB|F) = P(A|F)P(B|F)$
 
 All rules apply same as before (consider if $F = S$, then all conditionals collapse to being without conditioning). 
 
