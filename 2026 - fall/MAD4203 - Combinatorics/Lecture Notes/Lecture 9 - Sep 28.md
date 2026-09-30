@@ -18,21 +18,19 @@ $$
 \end{align}
 $$
 ## 5.2 - The binomial Theorem
+> [!theorem] Binomial theorem
+> For positive integer $n$:
+> $$
+> \begin{align}
+> (x+y)^{n}=\sum_{k=0}^{n} \binom{n}{k}x^{k}y^{n-k}= \sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^{k}=\sum_{k=0}^{n} \binom{n}{n-k}x^{n-k}y^{k} \\ \\
+> 
+> = \binom{n}{0}y^{n}+\binom{n}{1}xy^{n-1}+\binom{n}{2}x^{2}y^{n-2}+\dots+\binom{n}{n-1}x^{n-1}y+\binom{n}{n}x^{n} \\
+> \end{align}
+> $$
+^bf3678
 
-```ad-definition
-title: **Theorem**
-For positive integer $n$:
-$$
-\begin{align}
-(x+y)^{n}=\sum_{k=0}^{n} \binom{n}{k}x^{k}y^{n-k}= \sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^{k}=\sum_{k=0}^{n} \binom{n}{n-k}x^{n-k}y^{k} \\ \\
+When going from left to right its *expansion*, when it's going from right to left its *evaluating the sum*.
 
-= \binom{n}{0}y^{n}+\binom{n}{1}xy^{n-1}+\binom{n}{2}x^{2}y^{n-2}+\dots+\binom{n}{n-1}x^{n-1}y+\binom{n}{n}x^{n} \\
-\end{align}
-$$
-
-```
-
-When going from left to right its *expansion*, when its going from right to left its *evaluating the sum*.
 $$
 \begin{align}
 (x+y)^{n}= \binom{n}{0}y^{n}+\binom{n}{1}xy^{n-1}+\binom{n}{2}x^{2}y^{n-2}+\dots+\binom{n}{n-1}x^{n-1}y+\binom{n}{n}x^{n} \\
@@ -46,7 +44,7 @@ $$
 
 Write $(x+y)^{n}=\underbrace{ (x+y)(x+y)\dots(x+y) }_{ n \text{ times} }$
 
-We completely expand this product, using the distributive law, and group like terms.
+We completely expand this product, using the distributive law, and group like terms. ^5491fe
 
 When expanding the right side, we know there must be $2^{n}$ in the final expansion. This is because for any term, for every $(x+y)$ either the term gets multiplied by $x$ or by $y$.
 
@@ -71,13 +69,16 @@ We coul say this string could represent one way to get $x^{k}y^{n-k}$, by taken 
 
 
 *Remark:* This argument assumes terms are being grouped by $x$, but same argument applies for $y$ by just swapping both.
+
 #### Proof
+`\begin{proof}`@[[#^bf3678]]
 
 Write $(x+y)^{n}=\underbrace{ (x+y)(x+y)\dots(x+y) }_{ n \text{ times} }$
 
 We completely expand this product, using the distributive law, and group like terms.
 
-Since, for each factor $(x+y)$, we either pick $x$ or we pick $y$. There are $2^{n}$ terms in total, and each can be arranged as $x^{k}y^{n-k}$ for $k=0,1,\dots,n$. We obtain the term $x^{k}y^{n-k}$ by choosing $x$ in $k$ of the $n$ factors and by default, choosing $y$ in $n-k$ of the remaning factors. There are $\binom{n}{k}$ ways to do so. Thus, $(x+y)^{n}=\sum_{k=0}^{n}\binom{n}{k}x^{k}y^{n-k}$. $\square$
+Since, for each factor $(x+y)$, we either pick $x$ or we pick $y$. There are $2^{n}$ terms in total, and each can be arranged as $x^{k}y^{n-k}$ for $k=0,1,\dots,n$. We obtain the term $x^{k}y^{n-k}$ by choosing $x$ in $k$ of the $n$ factors and by default, choosing $y$ in $n-k$ of the remaning factors. There are $\binom{n}{k}$ ways to do so. Thus, $(x+y)^{n}=\sum_{k=0}^{n}\binom{n}{k}x^{k}y^{n-k}$. 
+`\end{proof}`
 
 *Remarks:*
 1. $(1+x)^{n} = \sum_{k=0}^{n}\binom{n}{k}x^{k}$
