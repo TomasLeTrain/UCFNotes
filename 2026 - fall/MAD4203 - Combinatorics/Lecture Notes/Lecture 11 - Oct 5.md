@@ -119,14 +119,11 @@ $$
 $$
 
 Basically given some "universe" (set in which elements exist), we can find some guarantees about those elements
-$$
-\begin{align}
-
-\end{align}
-$$
 
 > [!definition] Binary relation
 > A **Binary Relation** on a set $X$ is just a subset $R$ of the cartesian product $X \times X = \{ (x,y) | x \in X, y \in X \}$
+
+^a39303
 
 > [!definition] Comparable and Incomparable
 > We say $a,b \in X$ are **comparable** if $(a,b) \in R \text{ or } (b,a) \in R$
