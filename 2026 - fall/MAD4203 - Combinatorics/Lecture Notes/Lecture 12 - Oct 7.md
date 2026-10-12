@@ -8,7 +8,7 @@ The set $X$ is such a binary relation refered as the **ground set** (the "univer
 > A binary relation $R$ on a set $X$ is a **partial order** if it is relfexive, antisymmetric, and transitive.
 
 > [!definition] Linear/Total Order
-> A binary relation $R$ on a set $X$ is a **linear order/total order** on $X$ if $R$ is reflexive, symmetric, and transitive.
+> A **linear order/total order**I is a partial order where each pair of elements in $X$ is comparable.
 
 $X = \mathbb{R}, R = \leq$, or the more than or equal to binary relation, is linear order since any numbers are **comparable**.
 
@@ -78,7 +78,7 @@ The set of all maximal elements of $X$ form an *antichain*
 > Given a poset $P = (X, \preceq)$, a set $A \subseteq X$ is a **maximal antichain**  if $A$ is an antichain and $\nexists$ an antichain $A^{*}$ such that $A \subseteq A^{*}$.
 
 > [!definition] Maximal Chain
-> A set is a maximal chain if $c$ is a chiain in $P$ and $\nexists$ a chain $C^{*}$ such that $C \subseteq C^{*}$
+> A set is a maximal chain if $c$ is a chain in $P$ and $\nexists$ a chain $C^{*}$ such that $C \subseteq C^{*}$
 
 ## Example
 Consider the poset $(X, \preceq)$, where $X = [8], \preceq = |$ (divisibility)
