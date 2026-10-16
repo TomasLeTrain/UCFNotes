@@ -80,6 +80,8 @@ The set of all maximal elements of $X$ form an *antichain*
 > [!definition] Maximal Chain
 > A set is a maximal chain if $c$ is a chain in $P$ and $\nexists$ a chain $C^{*}$ such that $C \subseteq C^{*}$
 
+^ec5d82
+
 ## Example
 Consider the poset $(X, \preceq)$, where $X = [8], \preceq = |$ (divisibility)
 

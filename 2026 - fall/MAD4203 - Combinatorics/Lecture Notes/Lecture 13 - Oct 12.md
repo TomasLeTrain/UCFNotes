@@ -73,7 +73,3 @@ $P = (\mathcal{P}([4]),\subseteq)$
 
 Diagram:
 ![[Lecture 13 - Oct 12 2026-10-12 10.10.40.excalidraw]]
-
-
-# Second session
-
