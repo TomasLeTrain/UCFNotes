@@ -1,5 +1,4 @@
 ## Continuation from last lecture
-
 $$
 \begin{align}
 \binom{\alpha}{k} = \left\{\begin{array}{cc}
@@ -183,4 +182,3 @@ Minimal elements for subset relation: only $\emptyset$ (only $\emptyset \subsete
 
 Maximal elements for divisibility relation: 4,5,6 (they dont divide anything else)
 Maximal elements for subset relation: only whole subset $S$ (it is only a subset of itsel)
-
