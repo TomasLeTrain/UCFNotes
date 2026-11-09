@@ -35,3 +35,48 @@ f(x) = \frac{2\alpha}{x^{3}} \\
 \end{align}
 $$
 
+# Class Lecture
+## Example 1d
+The join density function of $X$ and $Y$ is given by
+$$
+\begin{align}
+f(x,y) = \left\{\begin{array}{cc}
+2e^{-x}e^{-2y} & 0 < x < \infty, 0 < y < \infty \\
+0  & \text{otherwise}
+\end{array}\right.
+\end{align}
+$$
+Compute (a) $P\{X > 1, Y < 1\}$, (b) $P\{X < Y\}$, and (c) $P\{X < a\}$, (d) $P\{X < -1, Y < 1\}$
+
+Must first find the PDF
+$$
+\begin{align}
+F(a,b)= \int_{-\infty}^{a} \int_{-\infty}^{b} f(x,y) \, dy  \, dx  \\
+= \int_{0}^{a} \int_{0}^{b} 2e^{-x}e^{-2y} \, dy  \, dx  \\
+= \int_{0}^{a} \left.2e^{-x}\left( \frac{1}{-2} \right)e^{-2y} \right|_{0}^{b} \, dx  \\
+= -\int_{0}^{a} e^{-x}(e^{-2b}-1) \, dx  \\
+= \left. e^{-x}(e^{-2b}-1) \right|_{0}^{a}  \\
+= e^{-a}(e^{-2b}-1) - (e^{-2b}-1) \\
+\boxed{ = (e^{-a}-1)(e^{-2b}-1)  }
+\end{align}
+$$
+
+So a:
+$$
+\begin{align}
+P\{ X > 1, Y < 1 \} = F_{y}(1) - F(1,1)
+\end{align}
+$$
+$b$:
+$$
+\begin{align}
+P\{ X < Y \} = ? \\
+\int_{-\infty}^{\infty} \int_{x}^{\infty} f(x,y) \, dy \, dx  \\
+\int_{0}^{\infty} \int_{x}^{\infty} e^{-x}e^{-2y} \, dy \, dx  \\
+\int_{0}^{\infty} \left. -\frac{2}{2}e^{-x}e^{-2y}\right|_{0}^{x} \, dx  \\
+-\int_{0}^{\infty}  e^{-x}(e^{-2x} -  1) \, dx  \\
+\left. e^{-x}(e^{-2x} -  1) \right|_{0}^{\infty} \\
+e^{-\infty}(e^{-2\infty} -  1) -  e^{-0}(e^{0} -  1) \\
+\boxed{ 0(0 -  1) -  1(1 -  1) = 0 }
+\end{align}
+$$
